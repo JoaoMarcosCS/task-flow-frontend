@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { getApiMessageError } from "@/utils/get-api-message-error";
+import Cookies from "js-cookie";
 
 export function useSignIn() {
   const { updateUser } = useUserStore();
@@ -39,6 +40,8 @@ export function useSignIn() {
         });
 
         addTokenToHeader(data.accessToken!);
+
+        Cookies.set("auth_token", data.accessToken!, { expires: 1 });
 
         toast.info(`Bem-vindo ${name}`);
 

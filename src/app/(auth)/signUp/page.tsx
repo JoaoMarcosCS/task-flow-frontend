@@ -1,6 +1,6 @@
 "use client";
 
-import { SignInForm } from "./components/SignInForm";
+import { SignUpForm } from "./components/SignUpForm";
 
 const SignIn = () => {
   return (
@@ -10,15 +10,13 @@ const SignIn = () => {
           <h1 className="text-yellow-400 font-semibold text-3xl">TaskFlow</h1>
         </div>
         <div className=" mt-10 w-4/5 max-w-72 ">
-          <p className="text-3xl font-medium">Bem-vindo de volta!</p>
+          <p className="text-3xl font-medium">Se cadastre!</p>
 
           <p className="font-medium text-sm text-muted-foreground">
-            Faça login para entrar no Task Flow
+            Faça seu cadastro no Task Flow
           </p>
-
           <br />
-
-          <SignInForm />
+          <SignUpForm />
         </div>
 
         <div className="mt-10 w4/5 max-w-72 ">

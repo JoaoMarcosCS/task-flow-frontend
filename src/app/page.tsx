@@ -1,6 +1,9 @@
 "use client";
 
-export default function Home() {
-  console.log(process.env.APP_PORT);
+import { routeGuard } from "@/middlewares/route-guard";
+
+const Home = () => {
   return <div className="">OLA MUNDO</div>;
-}
+};
+
+export default routeGuard(Home);
