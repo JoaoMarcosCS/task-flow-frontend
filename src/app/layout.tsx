@@ -17,12 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <ReactQueryProvider>
-        <body className={`${inter.className} bg-slate-100`}>
+      <body className={`${inter.className} bg-slate-200`}>
+        <ReactQueryProvider>
           <Toaster expand={false} />
           {children}
-        </body>
-      </ReactQueryProvider>
+        </ReactQueryProvider>
+      </body>
     </html>
   );
 }
