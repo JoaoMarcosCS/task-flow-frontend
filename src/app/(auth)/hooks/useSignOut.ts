@@ -11,6 +11,7 @@ export const useSignOut = () => {
     removeUser();
     removeTokenFromHeader();
     Cookie.remove("auth_token");
+    Cookie.remove("user_id");
     push("/signIn");
   };
 

@@ -42,6 +42,7 @@ export function useSignIn() {
         addTokenToHeader(data.accessToken!);
 
         Cookies.set("auth_token", data.accessToken!, { expires: 1 });
+        Cookies.set("user_id", userId.toString(), { expires: 1 });
 
         toast.info(`Bem-vindo ${name}`);
 
