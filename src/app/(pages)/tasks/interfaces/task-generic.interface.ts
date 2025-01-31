@@ -16,7 +16,7 @@ export interface TaskGenericInterface {
   status: {
     description: string;
   };
-  board: {
+  board?: {
     id: number;
     title: string;
   };
