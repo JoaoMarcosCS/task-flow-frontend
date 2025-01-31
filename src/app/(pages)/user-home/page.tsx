@@ -5,10 +5,10 @@ import { useUserStore } from "@/store/user.store";
 import { useBoardsData } from "./hooks/useBoardsData";
 import { RenderIf } from "@/components/commom/RenderIf";
 import { RenderItems } from "@/components/commom/RenderItems";
-import { BoardGeneric } from "./components/BoardGeneric";
 import { Loader2 } from "lucide-react";
 import { useTasksData } from "../tasks/hooks/useTasksData";
 import { TaskGeneric } from "../tasks/components/TaskGeneric";
+import { BoardGeneric } from "../boards/components/BoardGeneric";
 
 const UserHome = () => {
   const { user } = useUserStore((state) => state);

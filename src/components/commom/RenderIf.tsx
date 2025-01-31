@@ -1,5 +1,5 @@
 interface RenderIfProps {
-  shouldRender: boolean;
+  shouldRender: boolean | undefined | null;
   children: React.ReactNode;
 }
 
