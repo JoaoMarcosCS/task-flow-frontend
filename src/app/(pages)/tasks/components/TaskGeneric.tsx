@@ -7,9 +7,9 @@ export const TaskGeneric = ({ task }: { task: TaskGenericInterface }) => {
     <div className="w-[350px] shadow px-4 py-6 bg-slate-100 rounded-md">
       <div>
         <p className="text-muted-foreground text-sm">
-          {task?.status?.description ?? "Status não disponível"}, na board{" "}
-          {task?.board?.title ?? "Sem board"}
-        </p>
+          {task?.status?.description ?? "Status não disponível"}
+          {task?.board ? `, na board ${task.board.title}` : ""}
+        </p>  
       </div>
 
       <div className="flex flex-wrap flex-row items-end justify-between">
