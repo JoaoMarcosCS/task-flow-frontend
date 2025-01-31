@@ -45,7 +45,7 @@ export function useSignIn() {
 
         toast.info(`Bem-vindo ${name}`);
 
-        push("/"); // Agora podemos usar o roteador com segurança
+        push("/");
       }
     },
     onError: (error: AxiosError) => {
