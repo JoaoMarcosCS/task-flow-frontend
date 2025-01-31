@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { GetBoardsByUserIdParams } from "../interfaces/get-boards-by-user-id-params.interface";
+
 import { getBoardsByUserId } from "../services/get-boards-by-user-id";
 
-export function useBoardsData({ userId }: GetBoardsByUserIdParams) {
+export function useBoardsData({ userId }: { userId: number }) {
   const query = useQuery({
     queryFn: () => getBoardsByUserId({ userId }),
-    queryKey: ["user-tasks", { userId }],
+    queryKey: ["user-boards", { userId }],
     refetchOnWindowFocus: true,
   });
 

@@ -20,10 +20,8 @@ export const BoardGeneric = ({ board }: { board: BoardGenericInterface }) => {
             </p>
           </div>
           <div>
-            <Link href={"/"}>
-              <p>
-                <ChevronRight />
-              </p>
+            <Link href={`/boards/${board.id}`}>
+              <ChevronRight />
             </Link>
           </div>
         </div>
