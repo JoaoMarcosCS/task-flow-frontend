@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 "use client";
 
 import { routeGuard } from "@/middlewares/route-guard";
@@ -5,7 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useBoardDetails } from "./hooks/useBoardData";
 import { useUserStore } from "@/store/user.store";
 import { RenderIf } from "@/components/commom/RenderIf";
-import { CircleHelp, ListChecks, Loader2, Users } from "lucide-react";
+import { CircleHelp, ListChecks, Loader2, Plus, Users } from "lucide-react";
 import { toast } from "sonner";
 import { useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -13,6 +14,7 @@ import { RenderItems } from "@/components/commom/RenderItems";
 import { TaskGeneric } from "../../tasks/components/TaskGeneric";
 import { MemberGeneric } from "./components/MemberGeneric";
 import { UpdateBoardCard } from "./components/cards/UpdateBoardCard";
+import { CreateTaskForm } from "../../tasks/components/CreateTaskForm";
 
 const BoardDetails = () => {
   const params = useParams();
@@ -68,6 +70,10 @@ const BoardDetails = () => {
               <ListChecks className="w-5 h-5" />
               <span className="hidden sm:flex">Tarefas</span>
             </TabsTrigger>
+            <TabsTrigger className="" value="create-task">
+              <Plus />
+              <span className="hidden sm:flex">Criar</span>
+            </TabsTrigger>
             <TabsTrigger className="gap-3" value="members">
               <Users className="w-5 h-5" />
               <span className="hidden sm:flex">Membros</span>
@@ -84,6 +90,13 @@ const BoardDetails = () => {
             >
               {(item) => <TaskGeneric task={item} />}
             </RenderItems>
+          </TabsContent>
+          <TabsContent value="create-task" className="">
+            <div className="flex flex-col sm:items-start items-center  w-full mt-6">
+              <h1 className="text-2xl">Crie uma tarefa!</h1>
+              <br />
+              <CreateTaskForm boardId={data?.board.id!} />
+            </div>
           </TabsContent>
           <TabsContent value="members">
             <RenderItems

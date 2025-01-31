@@ -48,7 +48,7 @@ export const UpdateBoardForm = (board: UpdateBoardProps) => {
         {isPending ? (
           <Loader2 className="animate-spin mr-2 h-4 w-4" />
         ) : (
-          "Atualizir"
+          "Atualizar"
         )}
       </Button>
     </form>
