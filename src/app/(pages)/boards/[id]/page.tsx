@@ -14,7 +14,8 @@ import { RenderItems } from "@/components/commom/RenderItems";
 import { TaskGeneric } from "../../tasks/components/TaskGeneric";
 import { MemberGeneric } from "./components/MemberGeneric";
 import { UpdateBoardCard } from "./components/cards/UpdateBoardCard";
-import { CreateTaskForm } from "../../tasks/components/CreateTaskForm";
+import { AddMemberCard } from "./components/cards/AddMemberCard";
+import { CreateTaskForm } from "../../tasks/components/forms/CreateTaskForm";
 
 const BoardDetails = () => {
   const params = useParams();
@@ -27,12 +28,9 @@ const BoardDetails = () => {
     boardId: Number(params.id),
   });
 
-  const isAdmim =
-    // respons?.board_users_roles?.some((board.board) => role.userId == userId) ?? false;
-    data?.board_users_roles.some(
-      (role) =>
-        role.userId == userId && role.role.description == "administrador"
-    );
+  const isAdmim = data?.board_users_roles.some(
+    (role) => role.userId == userId && role.role.description == "administrador"
+  );
 
   useEffect(() => {
     if (!isBoardLoading && !data?.board) {
@@ -71,7 +69,7 @@ const BoardDetails = () => {
               <span className="hidden sm:flex">Tarefas</span>
             </TabsTrigger>
             <TabsTrigger className="" value="create-task">
-              <Plus />
+              <Plus className="w-5 h-5" />
               <span className="hidden sm:flex">Criar</span>
             </TabsTrigger>
             <TabsTrigger className="gap-3" value="members">
@@ -88,7 +86,13 @@ const BoardDetails = () => {
               empty="Nenhuma tarefa criada nesta board ainda :("
               items={data?.board?.tasks}
             >
-              {(item) => <TaskGeneric task={item} />}
+              {(item) => (
+                <TaskGeneric
+                  task={item}
+                  boardId={data?.board.id}
+                  isAdmim={isAdmim ?? false}
+                />
+              )}
             </RenderItems>
           </TabsContent>
           <TabsContent value="create-task" className="">
@@ -99,6 +103,9 @@ const BoardDetails = () => {
             </div>
           </TabsContent>
           <TabsContent value="members">
+            <div>
+              <AddMemberCard boardId={data?.board.id!} />
+            </div>
             <RenderItems
               empty="Nenhum membro adicionado ainda :("
               items={data?.board?.members}
@@ -114,6 +121,7 @@ const BoardDetails = () => {
                       ...item,
                       role: role ?? { id: 0, description: "Sem nível" },
                     }}
+                    boardId={data?.board.id!}
                   />
                 );
               }}
