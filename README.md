@@ -34,10 +34,13 @@ Antes de iniciar, certifique-se de ter instalado em sua máquina:
    http://localhost:3000
    ```
 
-Para iniciar a versão buildada:
+Para utilizar o usuário default admiinistrador, utilize as seguintes credenciais:
 ```sh
-   yarn start
+   email: jmcsjoaomarcos@gmail.com
+   senha: jmcs
 ```
+
+O usuário default já possui a role de administrado e acesso e autorizações às boards já criadas no back
 
 ## Tecnologias utilizadas
 
