@@ -20,6 +20,7 @@ export interface BoardDetailsInterface {
       description?: string;
       assignees: [
         {
+          id: number;
           name: string;
           email: string;
         }
@@ -29,6 +30,10 @@ export interface BoardDetailsInterface {
       };
       status: {
         description: string;
+      };
+      board?: {
+        id: number;
+        title: string;
       };
     }
   ];
