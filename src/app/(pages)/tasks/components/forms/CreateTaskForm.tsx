@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useCreateTaskFormHandler } from "../hooks/useCreateTaskFormHandler";
+import { useCreateTaskFormHandler } from "../../hooks/useCreateTaskFormHandler";
 import { RenderIf } from "@/components/commom/RenderIf";
 
 export const CreateTaskForm = ({ boardId }: { boardId: number }) => {
@@ -20,7 +20,11 @@ export const CreateTaskForm = ({ boardId }: { boardId: number }) => {
   } = useCreateTaskFormHandler(boardId);
 
   return (
-    <form action="" onSubmit={handleSubmit(handleUpdateBoard)} className="w-[300px]">
+    <form
+      action=""
+      onSubmit={handleSubmit(handleUpdateBoard)}
+      className="w-[300px]"
+    >
       <RenderIf shouldRender={isPrioritiesLoading}>
         <p className="flex gap-4">
           <Loader2 className="animate-spin" /> Estamos carregando suas

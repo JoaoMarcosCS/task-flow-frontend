@@ -8,6 +8,13 @@ import { useCreateTask } from "./useCreateTask";
 import { usePrioritiesData } from "./usePrioritiesData";
 
 export const useCreateTaskFormHandler = (boardId: number) => {
+  const { data: priorities, isLoading: isPrioritiesLoading } =
+    usePrioritiesData();
+
+  const defaultPriorityId = priorities?.find(
+    (priority) => priority.description === "Baixa"
+  )?.id;
+
   const {
     register,
     formState: { errors },
@@ -17,14 +24,11 @@ export const useCreateTaskFormHandler = (boardId: number) => {
     mode: "all",
     reValidateMode: "onChange",
     defaultValues: {
-      priorityId: 1,
+      priorityId: defaultPriorityId
     },
   });
 
   const { mutate, isPending } = useCreateTask();
-
-  const { data: priorities, isLoading: isPrioritiesLoading } =
-    usePrioritiesData();
 
   const handleUpdateBoard = (data: CreateTaskProps) => {
     mutate({

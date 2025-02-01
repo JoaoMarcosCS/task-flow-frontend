@@ -7,7 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { CreateTaskForm } from "../CreateTaskForm";
+import { CreateTaskForm } from "../forms/CreateTaskForm";
 
 export const CreateTaskCard = ({ boardId }: { boardId: number }) => {
   return (
