@@ -69,7 +69,7 @@ const UserHome = () => {
         <div className="mt-4">
           <RenderIf shouldRender={!isTasksLoading}>
             <RenderItems empty="Nenhuma tarefa encontrada" items={tasksData}>
-              {(item) => <TaskGeneric task={item} />}
+              {(item) => <TaskGeneric task={item} isAdmim={false} redirect />}
             </RenderItems>
           </RenderIf>
         </div>
